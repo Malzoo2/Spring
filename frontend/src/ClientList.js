@@ -1,4 +1,7 @@
-import { Component } from "react";
+import React, { Component } from 'react';
+import { Button, ButtonGroup, Container, Table } from 'reactstrap';
+import AppNavbar from './AppNavbar';
+import { Link } from 'react-router-dom';
 
 class ClientList extends Component {
 
@@ -18,8 +21,8 @@ class ClientList extends Component {
     async remove(id) {
         await fetch(`/clients/${id}`,
             {
-                method = 'DELETE', 
-                headers = {
+                method : 'DELETE', 
+                headers : {
                     'Accept' : 'application/json',
                     'Content-Type': 'application/json'
                 }
@@ -39,7 +42,7 @@ class ClientList extends Component {
             return <p>Loading........</p>
         }
 
-        const clientList  = clients.map( client => {
+        const clientList  = client.map( client => {
             return <tr key={client.id}>
             <td style={{whiteSpace: 'nowrap'}}>{client.name}</td>
             <td>{client.email}</td>
